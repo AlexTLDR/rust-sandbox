@@ -1,6 +1,8 @@
 // Silence some warnings so they don't distract from the exercise.
 #![allow(dead_code, unused_mut)]
 
+use structs::Polygon;
+
 // 1. Create a struct named `Polygon` with the fields and their types listed below. Then build the
 // program with `cargo build` to ensure you don't have any syntax errors.
 //
@@ -8,11 +10,7 @@
 // - sides - u32
 // - visible - bool
 
-struct Polygon {
-    name: String,
-    sides: u32,
-    visible: bool,
-}
+
 
 // 2. Create an implementation block for the `Polygon` struct.
 //
@@ -28,26 +26,7 @@ struct Polygon {
 //
 // Then build the program with `cargo build` to ensure you don't have any syntax errors.
 
-impl Polygon {
-    fn new(name: String) -> Self {
-        Self {
-            name,
-            sides: 3,
-            visible: true,
-        }
-    }
-    fn shape(&self) -> String {
-        match self.sides {
-            3 => String::from("triangle"),
-            4 => String::from("square"),
-            5 => String::from("pentagon"),
-            _ => String::from("polygon"),
-        }
-    }
-    fn increment_sides(&mut self) {
-        self.sides += 1;
-    }
-}
+
 
 fn main() {
     // 3. Create a new, mutable polygon variable by calling the Polygon's `new` associated function.
