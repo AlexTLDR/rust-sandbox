@@ -1,17 +1,56 @@
-use std::collections::HashMap;
 fn main() {
-    let mut v = Vec::new();
-    v.push(1);
-    v.push(2);
-    v.push(3);
-    let x = v.pop();
-    println!("{}{:?}", v[1], x);
+    // Here are some String variables to use. There are many ways to create a String!
+    let item = String::from("socks");
+    let animal = "fox".to_string();
+    let container = "box".to_owned();
+    let material = "rocks".into(); // .into() works as long as you use the value as a String later
 
-    let mut v = vec![1, 2, 3, 4, 5];
-    println!("{}{:?}", v[0], v.get(10));
+    // 1. Create a Vec<String> named `things` and move all of the strings above into it. You can do
+    // this by creating `things` and then calling the `push` method repeatedly, or by using the
+    // `vec!` macro. Then uncomment and run the code below.
 
-    let mut h: HashMap<u8, bool> = HashMap::new();
-    h.insert(1, true);
-    h.insert(2, false);
-    println!("{:?}", h.get(&1));
+    let mut things = vec![item, animal, container, material];
+    println!("{:?}", things); // `:?` means "the debug representation"
+
+    // 2. Print out the length of the `things` vector using the `len` method.
+
+    println!("things has a length of {}", things.len());
+
+    // 3. We want to use the `animal` variable in the (commented-out) code below, but we cannot
+    // because the value has been moved into `things`. Uncomment the code below and change it to use
+    // array indexing (with square brackets []) to index into `things` to access the `fox` String.
+
+    println!("What does the {} say?", things[1]); // get the value from `things` instead of `animal`
+
+    // 4. Sort `things` by calling the `sort` method. The variable needs to be mutable for this to
+    // compile without errors. Then uncomment and run the code below.
+    things.sort();
+    println!("Sorted values: {things:?}"); // variables can go inside the curly braces
+
+    // 5. Use a `for` loop to print out each item in `things`. It is okay to consume `things`, since
+    // we won't be using it any more after this.
+
+    for thing in things {
+        println!("Item: {}", thing);
+    }
+
+    // Challenge: Create a vector named `buffer` containing 1024 zeroes using the `vec!` macro. This
+    // should easily fit on one line without wrapping.
+
+    let mut buffer = vec![0; 1024];
+
+    // Challenge 2: Use a `for` loop and array indexing to change each entry in `buffer` to be its
+    // index value multiplied by 2. For example:
+    //
+    // buffer[0] should be 0
+    // buffer[1] should be 2
+    // buffer[2] should be 4
+    // etc.
+    //
+    // Then uncomment and run the code below.
+    for i in 0..buffer.len() {
+        buffer[i] = (i * 2) as i32;
+    }
+
+    println!("Here's a buffer full of even values: {buffer:?}");
 }
