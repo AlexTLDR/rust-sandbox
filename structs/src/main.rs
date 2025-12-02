@@ -39,7 +39,7 @@ fn main() {
     let mut polygon = Polygon::new(String::from("George"));
     println!(
         "I see a {}-sided polygon named {}!",
-        polygon.sides, polygon.name
+        polygon.sides(), polygon.name
     );
 
     // 4. In the `impl Polygon` block above:
@@ -74,7 +74,7 @@ fn main() {
         polygon.increment_sides();
         println!(
             "The polygon now has {} sides and is the shape of a {}",
-            polygon.sides,
+            polygon.sides(),
             polygon.shape()
         );
     }

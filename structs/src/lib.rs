@@ -1,6 +1,6 @@
 pub struct Polygon {
     pub name: String,
-    pub sides: u32,
+    sides: u32,
     pub visible: bool,
 }
 
@@ -19,6 +19,10 @@ impl Polygon {
             5 => String::from("pentagon"),
             _ => String::from("polygon"),
         }
+    }
+
+    pub fn sides(&self) -> u32 {
+        self.sides
     }
     pub fn increment_sides(&mut self) {
         self.sides += 1;
