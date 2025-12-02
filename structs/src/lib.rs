@@ -12,13 +12,22 @@ impl Polygon {
             visible: true,
         }
     }
+    // pub fn shape(&self) -> String {
+    //     match self.sides {
+    //         3 => String::from("triangle"),
+    //         4 => String::from("square"),
+    //         5 => String::from("pentagon"),
+    //         _ => String::from("polygon"),
+    //     }
+    // }
+
     pub fn shape(&self) -> String {
-        match self.sides {
-            3 => String::from("triangle"),
-            4 => String::from("square"),
-            5 => String::from("pentagon"),
-            _ => String::from("polygon"),
-        }
+        match self.sides{
+            3 => "triangle",
+            4 => "square",
+            5 => "pentagon",
+            _ => "polygon",
+        } .to_string()
     }
 
     pub fn sides(&self) -> u32 {
