@@ -1,19 +1,11 @@
 fn main() {
-    let mut name = "Alex".to_string();
-    greet_borrow(&name);
-    greet_borrow(&name);
-    greet_borrow_mut(&mut name);
-    greet(name);
+   let input = read_line();
+    println!("You typed: [{}]", input);
 }
 
-fn greet(s: String) {
-    println!("Hello {}", s);
-}
 
-fn greet_borrow(s: &String) {
-    println!("Hello {}", s);
-}
-
-fn greet_borrow_mut(s: &mut String) {
-    *s = format!("Hello {}", s);
+fn read_line() -> String {
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).expect("Stdin not working");
+    input.trim().to_string()
 }
