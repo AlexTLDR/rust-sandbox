@@ -1,5 +1,22 @@
-use authentication::greet_user;
+use authentication::{login, read_line};
 
 fn main() {
-    println!("{}", greet_user("Alex"));
+    let mut tries = 0;
+    loop {
+        println!("Enter your username:");
+        let username = read_line();
+        println!("Enter your password:");
+        let password = read_line();
+        if login(&username, &password) {
+            println!("Welcome, {}!", username);
+            break;
+        } else {
+            tries += 1;
+            println!("Invalid credentials. Try again.");
+            if tries >= 3 {
+                println!("Too many failed attempts. Exiting.");
+                break;
+            }
+        }
+    }
 }

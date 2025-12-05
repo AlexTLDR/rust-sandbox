@@ -16,7 +16,3 @@ version = "0.1.0"
 dependencies = [
  "authentication",
 ]
-
-[[package]]
-name = "variables"
-version = "0.1.0"
