@@ -21,15 +21,19 @@ pub enum LoginRole {
     User,
 }
 
-pub fn login(username: &str, password: &str) -> LoginAction {
+pub fn login(username: &str, password: &str) -> Option<LoginAction> {
     let username = username.to_lowercase();
 
+    if username != "admin" && username != "bob" {
+        return None;
+    }
+
     if username == "admin" && password == "password" {
-        LoginAction::Granted(LoginRole::Admin)
+        Some(LoginAction::Granted(LoginRole::Admin))
     } else if username == "bob" && password == "password" {
-        LoginAction::Granted(LoginRole::User)
+        Some(LoginAction::Granted(LoginRole::User))
     } else {
-        LoginAction::Denied
+        Some(LoginAction::Denied)
     }
 }
 
@@ -44,9 +48,9 @@ mod tests {
 
     #[test]
     fn test_login() {
-        assert_eq!(login("admin", "password"), LoginAction::Granted(LoginRole::Admin));
-        assert_eq!(login("ADMIN", "password"), LoginAction::Granted(LoginRole::Admin));
-        assert_eq!(login("bob", "password"), LoginAction::Granted(LoginRole::User));
-        assert_eq!(login("admin", "password-not"), LoginAction::Denied);
+        assert_eq!(login("admin", "password"), Some(LoginAction::Granted(LoginRole::Admin)));
+        assert_eq!(login("ADMIN", "password"), Some(LoginAction::Granted(LoginRole::Admin)));
+        assert_eq!(login("bob", "password"), Some(LoginAction::Granted(LoginRole::User)));
+        assert_eq!(login("admin", "password-not"), Some(LoginAction::Denied));
     }
 }
