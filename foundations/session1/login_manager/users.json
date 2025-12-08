@@ -1,6 +1,6 @@
 {
-  "admin": {
-    "username": "admin",
+  "AlexTLDR": {
+    "username": "alextldr",
     "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
     "role": "Admin"
   },
@@ -9,9 +9,9 @@
     "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
     "role": "User"
   },
-  "AlexTLDR": {
-    "username": "alextldr",
-    "password": "65992504107a3a9109aa6d8aa71c62e61883cbccd500d315b50afeccd96cd183",
+  "admin": {
+    "username": "admin",
+    "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
     "role": "Admin"
   }
 }
