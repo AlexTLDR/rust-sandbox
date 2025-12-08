@@ -62,7 +62,7 @@ fn get_default_users() -> HashMap<String, User> {
     users
 }
 
-fn get_users() -> HashMap<String, User> {
+pub fn get_users() -> HashMap<String, User> {
     let users_path = Path::new("users.json");
     if users_path.exists() {
         // Load the file
