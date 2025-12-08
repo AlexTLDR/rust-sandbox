@@ -1,4 +1,4 @@
-use authentication::{LoginRole, User, get_users, save_users};
+use authentication::{get_users, save_users, LoginRole, User};
 use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
@@ -40,7 +40,7 @@ enum Commands {
         current_username: String,
         /// New username
         new_username: String,
-    }
+    },
 }
 
 fn list_users() {
@@ -109,10 +109,16 @@ fn main() {
         Some(Commands::Delete { username }) => {
             delete_user(username);
         }
-        Some(Commands::ChangePassword { username, new_password }) => {
+        Some(Commands::ChangePassword {
+            username,
+            new_password,
+        }) => {
             change_password(username, new_password);
         }
-        Some(Commands::ChangeUserName { current_username, new_username }) => {
+        Some(Commands::ChangeUserName {
+            current_username,
+            new_username,
+        }) => {
             change_username(current_username, new_username);
         }
         None => {
