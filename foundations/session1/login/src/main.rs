@@ -1,4 +1,4 @@
-use authentication::{login, read_line, LoginAction};
+use authentication::{LoginAction, login, read_line};
 
 fn main() {
     let mut tries = 0;
@@ -19,8 +19,7 @@ fn main() {
             Some(LoginAction::Denied) => {}
             None => {
                 println!("New user system");
-        }
-
+            }
         }
         println!("Invalid credentials. Try again.");
         tries += 1;
