@@ -1,9 +1,4 @@
 {
-  "AlexTLDR": {
-    "username": "sandu",
-    "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-    "role": "Admin"
-  },
   "bob": {
     "username": "bob",
     "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
@@ -11,6 +6,11 @@
   },
   "admin": {
     "username": "admin",
+    "password": "6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4",
+    "role": "Admin"
+  },
+  "AlexTLDR": {
+    "username": "sandu",
     "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
     "role": "Admin"
   }

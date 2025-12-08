@@ -78,6 +78,14 @@ fn delete_user(username: String) {
 fn change_password(username: String, password: String) {
     let mut users = get_users();
     if let Some(user) = users.get_mut(&username) {
+        // Verify the actual password
+        println!("Type the actual password for verification:");
+        let actual_password = authentication::read_line();
+        if authentication::hash_password(&actual_password) != user.password {
+            println!("Actual password is incorrect. Aborting.");
+            return;
+        }
+
         user.password = authentication::hash_password(&password);
         save_users(users);
     } else {
