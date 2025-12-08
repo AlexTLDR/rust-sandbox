@@ -33,6 +33,13 @@ enum Commands {
         username: String,
         /// New password
         new_password: String,
+    },
+    /// Change a user's username
+    ChangeUserName {
+        /// Current username of the user
+        current_username: String,
+        /// New username
+        new_username: String,
     }
 }
 
@@ -77,6 +84,15 @@ fn change_password(username: String, password: String) {
         println!("User '{}' not found.", username);
     }
 }
+fn change_username(current_username: String, new_username: String) {
+    let mut users = get_users();
+    if let Some(user) = users.get_mut(&current_username) {
+        user.username = new_username;
+        save_users(users);
+    } else {
+        println!("User '{}' not found.", current_username);
+    }
+}
 fn main() {
     let cli = Args::parse();
     match cli.command {
@@ -95,6 +111,9 @@ fn main() {
         }
         Some(Commands::ChangePassword { username, new_password }) => {
             change_password(username, new_password);
+        }
+        Some(Commands::ChangeUserName { current_username, new_username }) => {
+            change_username(current_username, new_username);
         }
         None => {
             println!("Run with --help to see instructions.");
