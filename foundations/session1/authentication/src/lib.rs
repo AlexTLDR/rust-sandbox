@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 pub fn greet_user(name: &str) -> String {
     format!("Hello {}", name)
 }
@@ -21,6 +23,7 @@ pub enum LoginRole {
     User,
 }
 
+#[derive(Debug, Clone)]
 pub struct User {
     pub username: String,
     pub password: String,
@@ -37,30 +40,43 @@ impl User {
     }
 }
 
-pub fn get_users() -> Vec<User> {
-    vec![
-        User::new("admin", "password", LoginRole::Admin),
-        User::new("bob", "password", LoginRole::User)
-    ]
-}
+// pub fn get_users() -> Vec<User> {
+//     vec![
+//         User::new("admin", "password", LoginRole::Admin),
+//         User::new("bob", "password", LoginRole::User)
+//     ]
+// }
 
-fn get_admin_users() {
-    let users: Vec<String> = get_users()
-        .into_iter()
-        .filter(|u| u.role == LoginRole::Admin)
-        .map(|u|u.username)
-        .collect();
+fn get_users() -> HashMap<String, User> {
+    let mut users = HashMap::new();
+    users.insert("admin".to_string(), User::new("admin", "password", LoginRole::Admin));
+    users.insert("bob".to_string(), User::new("bob", "password", LoginRole::User));
+    users
 }
+// fn get_admin_users() {
+//     let users: Vec<String> = get_users()
+//         .into_iter()
+//         .filter(|u| u.role == LoginRole::Admin)
+//         .map(|u|u.username)
+//         .collect();
+// }
 pub fn login(username: &str, password: &str) -> Option<LoginAction> {
     let username = username.to_lowercase();
     let users= get_users();
-    if let Some(user) = users.iter().find(|user|user.username == username) {
+    if let Some(user) = users.get(&username){
         if user.password == password {
             return Some(LoginAction::Granted(user.role.clone()));
         } else {
             return Some(LoginAction::Denied);
         }
     }
+    // if let Some(user) = users.iter().find(|user|user.username == username) {
+    //     if user.password == password {
+    //         return Some(LoginAction::Granted(user.role.clone()));
+    //     } else {
+    //         return Some(LoginAction::Denied);
+    //     }
+    // }
     None
 }
 
