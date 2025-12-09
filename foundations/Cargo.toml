@@ -9,7 +9,7 @@ edition = "2024"
 members = [
     "session1/authentication",
     "session1/login",
-    "session1/login_manager",
+    "session1/login_manager", "session2/deadlocks",
     "session2/divide_work",
     "session2/footgun",
     "session2/hello", "session2/mutexes", "session2/rwlocks",
