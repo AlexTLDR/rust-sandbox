@@ -1,7 +1,14 @@
 use std::sync::Mutex;
 
 static MY_SHARED: Mutex<u32> = Mutex::new(3);
+
+fn poisoner() {
+    let mut lock = MY_SHARED.lock().unwrap();
+    *lock += 1;
+    panic!("The poisoner strikes");
+}
 fn main() {
+    /*
     //let my_shared = Mutex::new(0);
 
     let lock = MY_SHARED.lock().unwrap();
@@ -11,4 +18,17 @@ fn main() {
     } else {
         println!("No lock");
     }
+    */
+
+    let handle = std::thread::spawn(poisoner);
+    println!("Trying to return from the thread");
+    println!("{:?}", handle.join());
+
+    let lock = MY_SHARED.lock();
+    println!("{lock:?}");
+
+    let recovered_data = lock.unwrap_or_else(|poisoned| {
+        println!("The mutex was poisoned, but we can recover the data.");
+        poisoned.into_inner()
+    });
 }
