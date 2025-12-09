@@ -13,5 +13,5 @@ fn main() {
     }
     handles.into_iter().for_each(|h| h.join().unwrap());
     let lock = NUMBERS.lock().unwrap();
-    println!("{:#?}", *lock);
+    println!("{:#?}", lock);
 }
