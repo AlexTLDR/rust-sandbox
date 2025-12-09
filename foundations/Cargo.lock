@@ -157,6 +157,10 @@ name = "divide_work"
 version = "0.1.0"
 
 [[package]]
+name = "footgun"
+version = "0.1.0"
+
+[[package]]
 name = "foundations"
 version = "0.1.0"
 
