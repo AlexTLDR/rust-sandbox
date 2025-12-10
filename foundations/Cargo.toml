@@ -10,6 +10,7 @@ members = [
     "session1/authentication",
     "session1/login",
     "session1/login_manager",
+    "session2/affinity",
     "session2/channels1",
     "session2/dashing",
     "session2/deadlocks",
