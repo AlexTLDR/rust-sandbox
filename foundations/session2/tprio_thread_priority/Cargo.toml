@@ -1,0 +1,7 @@
+[package]
+name = "tprio_thread_priority"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+thread-priority = "3.0.0"
