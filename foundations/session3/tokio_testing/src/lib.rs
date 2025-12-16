@@ -7,7 +7,7 @@ async fn double(n: u32) -> u32 {
 }
 
 #[cfg(test)]
-mod tests {
+mod test {
     use super::*;
 
     #[test]
