@@ -5,7 +5,11 @@ edition = "2024"
 default-run = "traits"
 
 [[bin]]
-name = "display"         # The command name
+name = "display"
 path = "src/display_trait.rs"
+
+[[bin]]
+name = "complex"
+path = "src/complex_example.rs"
 
 [dependencies]
