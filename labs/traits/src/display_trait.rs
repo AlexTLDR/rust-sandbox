@@ -1,9 +1,15 @@
 // Run with: cargo run -p traits --bin display
+use std::fmt;
 
-#[derive(Debug)]
 struct Cat {
     name: String,
     age: u8,
+}
+
+impl fmt::Display for Cat {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{} is actually a dog age {}.", self.name, self.age)
+    }
 }
 
 fn main() {
@@ -11,5 +17,5 @@ fn main() {
         name: "Sushi".to_string(),
         age: 4,
     };
-    println!("{sushi:?} is actually a dog.")
+    println!("{}", sushi);
 }
