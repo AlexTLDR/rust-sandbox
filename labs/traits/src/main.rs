@@ -16,7 +16,14 @@ trait DogLike {
 }
 
 impl DogLike for Animal {}
-impl DogLike for Parrot {}
+impl DogLike for Parrot {
+    fn run(&self) {
+        println!("{} the parrot is running!", self.name);
+    }
+    fn bark(&self) {
+        println!("{} the parrot is talking!", self.name);
+    }
+}
 
 fn main() {
     let rover = Animal {
