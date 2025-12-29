@@ -1,3 +1,5 @@
+mod display_trait;
+
 struct Animal {
     name: String,
 }
@@ -7,21 +9,24 @@ struct Parrot {
 }
 
 trait DogLike {
-    fn bark(&self) {
-        println!("Woof woof!");
-    }
-    fn run(&self) {
-        println!("Running...");
-    }
+    fn bark(&self);
+    fn run(&self);
 }
 
-impl DogLike for Animal {}
-impl DogLike for Parrot {
-    fn run(&self) {
-        println!("{} the parrot is running!", self.name);
+impl DogLike for Animal {
+    fn bark(&self) {
+        println!("{} the animal is barking like crazy!", self.name)
     }
+    fn run(&self) {
+        println!("{} the animal is running!", self.name);
+    }
+}
+impl DogLike for Parrot {
     fn bark(&self) {
         println!("{} the parrot is talking!", self.name);
+    }
+    fn run(&self) {
+        println!("{} the parrot is running!", self.name);
     }
 }
 
