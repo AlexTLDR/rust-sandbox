@@ -16,4 +16,8 @@ path = "src/complex_example.rs"
 name = "from"
 path = "src/from_trait.rs"
 
+[[bin]]
+name = "orphan"
+path = "src/orphan_rule.rs"
+
 [dependencies]

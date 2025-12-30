@@ -1,6 +1,7 @@
+mod complex_example;
 mod display_trait;
 mod from_trait;
-mod complex_example;
+mod orphan_rule;
 
 struct Animal {
     name: String,
