@@ -1,4 +1,6 @@
 mod display_trait;
+mod from_trait;
+mod complex_example;
 
 struct Animal {
     name: String,
