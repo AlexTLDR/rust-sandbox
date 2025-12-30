@@ -20,4 +20,8 @@ path = "src/from_trait.rs"
 name = "orphan"
 path = "src/orphan_rule.rs"
 
+[[bin]]
+name = "asref"
+path = "src/asref.rs"
+
 [dependencies]
