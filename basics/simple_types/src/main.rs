@@ -1,5 +1,7 @@
 #![allow(dead_code, unused_variables)]
 
+use std::f32::consts;
+
 fn main() {
     let coords: (f64, f64) = (6.3, 15.0);
     print_difference(coords.0, coords.1);
@@ -12,7 +14,7 @@ fn main() {
     ding(series[6]);
 
     let mess: ([i32; 2], f32, [(bool, i32); 2], i32, &str) =
-        ([3, 2], 3.14, [(false, -3), (true, -100)], 5, "candy");
+        ([3, 2], consts::PI, [(false, -3), (true, -100)], 5, "candy");
     // 4. Pass the `on_off` function the value `true` from the variable `mess`.  Done correctly,
     // `cargo run` will produce the additional output "Lights are on!" I'll get you started:
     //
