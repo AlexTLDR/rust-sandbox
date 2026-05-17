@@ -6,4 +6,4 @@ edition = "2024"
 [dependencies]
 
 [workspace]
-members = ["basics/variables"]
+members = ["basics/console_text_input","basics/variables"]
