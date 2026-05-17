@@ -1,13 +1,8 @@
 #![allow(unused)]
 
-fn inspect(thing: Option<&str>) {
-    match thing {
-        Some(thing) => {
-            println!("You passed in a {}", thing)
-        }
-        None => {
-            println!("no value")
-        }
+fn inspect(i: Option<&str>) {
+    if let Some(variable) = i {
+        println!("You passed in a {}", variable);
     }
 }
 
@@ -19,19 +14,20 @@ enum Snack {
 
 impl Snack {
     fn price(self) -> u8 {
+        use Snack::*;
         match self {
-            Snack::Apple => 5,
-            Snack::Cookies(num) => 2 * num,
-            Snack::Sandwich { lettuce, cheese } => {
+            Apple => 5,
+            Cookies(number) => 2 * number,
+            Sandwich { lettuce, cheese } => {
                 10 + if lettuce { 1 } else { 0 } + if cheese { 2 } else { 0 }
             }
         }
     }
     fn is_apple(&self) -> bool {
-        matches!(self, Snack::Apple)
+        use Snack::*;
+        matches!(self, Apple)
     }
 }
-
 fn main() {
     // 1. If `maybe_fruit` below is a `Some` variant, then print out the string it wraps. Use the
     // Option type's `is_some` and `unwrap` methods with an `if` expression to implement the logic.
@@ -39,7 +35,8 @@ fn main() {
 
     let maybe_fruit: Option<&str> = Some("apple");
     if maybe_fruit.is_some() {
-        println!("{}", maybe_fruit.unwrap());
+        let fruit = maybe_fruit.unwrap();
+        println!("{}", fruit);
     }
 
     // 2. Write a function `inspect` that accepts an `Option<&str>` as an argument and does not
@@ -71,14 +68,9 @@ fn main() {
 
     let numbers = vec![0, 1];
     for number in numbers {
-        let result = do_math(number);
-        match result {
-            Ok(result) => {
-                println!("The result was {}", result)
-            }
-            Err(result) => {
-                println!("{}", result)
-            }
+        match do_math(number) {
+            Ok(number) => println!("The result was {}", number),
+            Err(e) => println!("{}", e),
         }
     }
 
@@ -98,21 +90,6 @@ fn main() {
         lettuce: false,
         cheese: true,
     };
-    let snacks = vec![&healthy_snack, &sugary_snack, &lunch];
-    for s in &snacks {
-        match s {
-            Snack::Apple => println!("The healthy snack is an apple."),
-            Snack::Cookies(num_cookies) => println!("The sugary snack is {} cookies", num_cookies),
-            Snack::Sandwich { lettuce, cheese } => {
-                let lettuce_msg = if *lettuce { "does" } else { "does not" };
-                let cheese_msg = if *cheese { "does" } else { "does not" };
-                println!(
-                    "The sandwich {} have lettuce and {} have cheese.",
-                    lettuce_msg, cheese_msg
-                );
-            }
-        }
-    }
     // if let Snack::Apple = healthy_snack {
     //     println!("The healthy snack is an apple.");
     // }
@@ -126,6 +103,23 @@ fn main() {
     //         "The sandwich {} have lettuce and {} have cheese.",
     //         lettuce_msg, cheese_msg
     //     );
+    // }
+    let snacks = vec![&healthy_snack, &sugary_snack, &lunch];
+    for snack in snacks {
+        use Snack::*;
+        match snack {
+            Apple => println!("The healthy snack is an apple."),
+            Cookies(num_cookies) => println!("The sugary snack is {} cookies", num_cookies),
+            Sandwich { lettuce, cheese } => {
+                let lettuce_msg = if *lettuce { "does" } else { "does not" };
+                let cheese_msg = if *cheese { "does" } else { "does not" };
+                println!(
+                    "The sandwich {} have lettuce and {} have cheese.",
+                    lettuce_msg, cheese_msg
+                );
+            }
+        }
+    }
 
     // 5. Create an `impl` block for the `Snack` enum and implement a method named `price` which
     // takes ownership of a Snack and returns a u8 representing the price of the snack according to
@@ -155,7 +149,7 @@ fn main() {
         );
     }
 
-    // Challenge 1: Implement an `is_apple` method for Snack that returns a bool. Return `true` if
+    // Challenge 1: Implement an `is_apple` method for Snack that return a bool. Return `true` if
     // the value is an `Apple` variant, and `false` otherwise. Then uncomment and run the code
     // below.
 
