@@ -21,7 +21,6 @@ pub enum LoginAction {
 pub enum LoginRole {
     Admin,
     User,
-    Denied,
 }
 pub fn login(username: &str, password: &str) -> LoginAction {
     let username = username.to_lowercase();
