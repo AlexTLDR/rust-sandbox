@@ -15,6 +15,10 @@ name = "foundations"
 version = "0.1.0"
 
 [[package]]
+name = "hash_vec_bench"
+version = "0.1.0"
+
+[[package]]
 name = "login"
 version = "0.1.0"
 dependencies = [
@@ -23,4 +27,8 @@ dependencies = [
 
 [[package]]
 name = "variables"
+version = "0.1.0"
+
+[[package]]
+name = "vector_growth"
 version = "0.1.0"
