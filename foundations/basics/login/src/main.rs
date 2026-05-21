@@ -25,7 +25,7 @@ fn main() {
         println!("Incorrect username or password");
         tries += 1;
         if tries >= 3 {
-            println!("Too many failed login attempst");
+            println!("Too many failed login attempts");
             break;
         }
     }
