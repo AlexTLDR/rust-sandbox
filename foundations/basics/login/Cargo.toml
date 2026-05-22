@@ -5,3 +5,4 @@ edition = "2024"
 
 [dependencies]
 authentication = { path = "../authentication" }
+sha2 = "0.10"
