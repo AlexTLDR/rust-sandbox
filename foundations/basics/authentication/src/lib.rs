@@ -54,6 +54,12 @@ impl User {
 //     ]
 // }
 
+pub fn save_users(users: HashMap<String, User>) {
+    let users_path = Path::new("users.json");
+    let user_json = serde_json::to_string(&users).unwrap();
+    std::fs::write(users_path, user_json).unwrap();
+}
+
 pub fn get_default_users() -> HashMap<String, User> {
     let mut users = HashMap::new();
     users.insert(
@@ -94,7 +100,7 @@ pub fn get_users() -> HashMap<String, User> {
 pub fn login(username: &str, password: &str) -> Option<LoginAction> {
     let username = username.to_lowercase();
     let password = hash_password(password);
-    
+
     let users = get_users();
     if let Some(user) = users.get(&username) {
         return if user.password == password {

@@ -6,4 +6,4 @@ edition = "2024"
 [dependencies]
 
 [workspace]
-members = ["basics/authentication","basics/console_text_input", "basics/hash_vec_bench", "basics/login","basics/variables", "basics/vector_growth"]
+members = ["basics/authentication","basics/console_text_input", "basics/hash_vec_bench", "basics/login","basics/variables", "basics/vector_growth", "login_manager"]

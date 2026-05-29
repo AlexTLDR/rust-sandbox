@@ -1,0 +1,17 @@
+{
+  "bob": {
+    "username": "bob",
+    "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    "role": "User"
+  },
+  "john": {
+    "username": "john",
+    "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    "role": "User"
+  },
+  "AlexTLDR": {
+    "username": "alextldr",
+    "password": "b43373e865748cee3d06cac82d2c3eaad2648c634b05ceaa848f09547e24ec6d",
+    "role": "Admin"
+  }
+}
