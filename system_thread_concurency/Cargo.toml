@@ -6,4 +6,4 @@ edition = "2024"
 [dependencies]
 
 [workspace]
-members = ["divide_work","hello"]
+members = ["divide_work","hello", "thread_builder"]
