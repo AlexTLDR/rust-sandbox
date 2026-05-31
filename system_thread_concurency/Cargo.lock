@@ -7,6 +7,14 @@ name = "divide_work"
 version = "0.1.0"
 
 [[package]]
+name = "footgun-fixed_with_atomic"
+version = "0.1.0"
+
+[[package]]
+name = "footgun-sharing_data_with_atomics"
+version = "0.1.0"
+
+[[package]]
 name = "hello"
 version = "0.1.0"
 
