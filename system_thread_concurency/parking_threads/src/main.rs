@@ -27,10 +27,10 @@ fn main() {
             break;
         }
 
-        if let Ok(number) = input.parse::<usize>() {
-            if number < 10 {
-                threads[number].thread().unpark();
-            }
+        if let Ok(number) = input.parse::<usize>()
+            && number < 10
+        {
+            threads[number].thread().unpark();
         }
     }
 }
