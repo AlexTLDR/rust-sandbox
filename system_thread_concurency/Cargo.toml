@@ -6,4 +6,4 @@ edition = "2024"
 [dependencies]
 
 [workspace]
-members = ["channels","dashing","deadlocks","divide_work", "footgun-fixed_with_atomic", "footgun-sharing_data_with_atomics","hello", "mutexes", "parking_threads", "rwlocks", "scoped_threads", "thread_builder"]
+members = ["channels","dashing","deadlocks","divide_work", "footgun-fixed_with_atomic", "footgun-sharing_data_with_atomics", "functions_to_worker_threads","hello", "mutexes", "parking_threads", "rwlocks", "scoped_threads", "thread_builder"]
