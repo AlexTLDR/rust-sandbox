@@ -2,6 +2,9 @@ use futures::executor::block_on;
 use futures::future::join_all;
 use futures::join;
 
+fn do_something_sync() {
+    println!("Not async!");
+}
 async fn say_hello() {
     println!("Hello");
     join!(second_function(), say_goodbye());
@@ -12,6 +15,8 @@ async fn say_hello() {
     let futures = vec![double(1), double(2), double(3)];
     let results = join_all(futures).await;
     println!("{results:?}");
+
+    do_something_sync();
 }
 
 async fn second_function() {
