@@ -6,4 +6,4 @@ edition = "2024"
 [dependencies]
 
 [workspace]
-members = ["restclient","blocking_tasks", "errors", "fileio","hello_async", "hello_tokio", "tokio_testing"]
+members = ["restclient","blocking_tasks", "errors", "fileio","hello_async", "hello_tokio", "tokio_testing", "tcpserver"]
