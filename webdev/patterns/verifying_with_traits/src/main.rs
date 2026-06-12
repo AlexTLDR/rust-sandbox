@@ -44,10 +44,13 @@ fn create<T: CanCreate>(user: &T) {
 fn edit<T: CanEdit>(user: &T) {
     user.edit();
 }
-fn delete<T: CanDelete>(user: &T) -> () {
+fn delete<T: CanDelete>(user: &T) {
     user.delete();
 }
-
+fn cache<T: CanCreate + CanDelete>(user: &T) {
+    user.create();
+    user.delete();
+}
 fn main() {
     let admin = AdminUser {
         username: "admin".to_string(),
@@ -61,4 +64,6 @@ fn main() {
     edit(&admin);
     edit(&user);
     delete(&admin);
+    println!("------------------------------");
+    cache(&admin);
 }
