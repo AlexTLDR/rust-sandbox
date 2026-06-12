@@ -51,10 +51,10 @@ macro_rules! register_contract_routes {
 }
 
 register_contract_routes!(
-    ContractHandler,
-    handle_contract,
-    ContractOne => handle_contract_one,
-    ContractTwo => handle_contract_two
+    ContractHandler,                       // $handler_enum
+    handle_contract,                       // $fn_name
+    ContractOne => handle_contract_one,    // $contract => $handler_fn
+    ContractTwo => handle_contract_two     // (repeated zero or more times)
 );
 
 fn main() {
