@@ -17,4 +17,3 @@ fn main() {
     // After sum: 216
     println!("The sum of the squares of even numbers greater than 3 is {}", result);
 }
-
