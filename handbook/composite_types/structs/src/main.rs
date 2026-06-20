@@ -41,4 +41,31 @@ fn main() {
         "User: {} just signed in this many times: {}",
         user2.username, user2.sign_in_count
     );
+    /*
+    When using the struct update syntax,
+    it’s important to remember that Rust’s ownership rules apply to each field individually.
+    The behavior depends on whether a type implements the Copy trait.
+    */
+    let user3 = User {
+        // if username or email wouldn't be explicit declared, but left under the ..user1
+        // let's say
+        // email: String::from("oreo@gmail.com"),
+        // ..user1
+        // user1 would have lost ownership of username, as String does not implement copy
+        // since bool and u64 implement copy, user1 keeps ownership of those
+        username: String::from("Oreo"),
+        email: String::from("oreo@gmail.com"),
+        ..user1
+    };
+    println!("The Third's user details are {:?}", user3);
+
+    /*
+    If we need to keep the original struct valid after the update,
+    we must explicitly clone its non-Copy fields to create a deep copy for the new instance.
+    */
+    let user4 = User {
+        email: String::from("Sasha"),
+        username: user3.username.clone(),
+        ..user3
+    };
 }
