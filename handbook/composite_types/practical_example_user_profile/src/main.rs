@@ -1,4 +1,5 @@
-#[derive(Debug)]
+//#[derive(Debug)]
+use std::fmt;
 struct UserProfile {
     username: String,
     email: String,
@@ -6,6 +7,16 @@ struct UserProfile {
     active: bool,
     phone_number: String,
     address: String,
+}
+
+impl fmt::Debug for UserProfile {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "UserProfile{{ username: {}, email: {}, age{}, active: {}, phone_number: {}, address: {} }}",
+            self.username, self.email, self.age, self.active, self.phone_number, self.address
+        )
+    }
 }
 
 impl UserProfile {
