@@ -25,4 +25,5 @@ fn main() {
             _ => eprintln!("Another error: {}!", e),
         },
     }
+    fs::remove_file("exists.txt");
 }
