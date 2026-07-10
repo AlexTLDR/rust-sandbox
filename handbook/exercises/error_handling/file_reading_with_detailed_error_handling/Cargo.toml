@@ -1,0 +1,7 @@
+[package]
+name = "file_reading_with_detailed_error_handling"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
