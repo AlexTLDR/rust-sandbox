@@ -1,7 +1,8 @@
 use std::fs;
+use std::io::ErrorKind;
 
 fn read_content(path: &str) -> Result<String, std::io::Error> {
-    std::fs::read_to_string(path)
+    fs::read_to_string(path)
 }
 
 fn main() {
@@ -11,8 +12,8 @@ fn main() {
     match read_content("exists.txt") {
         Ok(s) => println!("{}", s),
         Err(e) => match e.kind() {
-            std::io::ErrorKind::NotFound => eprintln!("File not found"),
-            std::io::ErrorKind::PermissionDenied => eprintln!("Permission denied"),
+            ErrorKind::NotFound => eprintln!("File not found"),
+            ErrorKind::PermissionDenied => eprintln!("Permission denied"),
             _ => eprintln!("Another error: {}!", e),
         },
     }
@@ -20,8 +21,8 @@ fn main() {
     match read_content("doesnot_exist.txt") {
         Ok(s) => println!("This file doesn't exist, should not print this"),
         Err(e) => match e.kind() {
-            std::io::ErrorKind::NotFound => eprintln!("File not found"),
-            std::io::ErrorKind::PermissionDenied => eprintln!("Permission denied"),
+            ErrorKind::NotFound => eprintln!("File not found"),
+            ErrorKind::PermissionDenied => eprintln!("Permission denied"),
             _ => eprintln!("Another error: {}!", e),
         },
     }
